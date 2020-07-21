@@ -5,7 +5,7 @@
 
 {{-- Hidden divs with data passed from the PHP server --}}
 <div id="paymentMethodsResponse" class="hidden">{{$response}}</div>
-<div id="originKey" class="hidden">{{$originKey}}</div>
+<div id="clientKey" class="hidden">{{$clientKey}}</div>
 <div id="type" class="hidden">{{$type}}</div>
 
 <div id="payment-page">

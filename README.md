@@ -41,12 +41,12 @@ composer install
 
 ## Usage
 
-1. Update **./.env** with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Origin Key](https://docs.adyen.com/user-management/how-to-get-an-origin-key), and merchant account name:
+1. Update **./.env** with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
 
 ```
 API_KEY=YOUR_API_KEY_HERE
 MERCHANT_ACCOUNT=YOUR_MERCHANT_ACCOUNT_HERE
-ORIGIN_KEY=YOUR_ORIGIN_KEY_HERE
+CLIENT_KEY=YOUR_CLIENT_KEY_HERE
 ```
 
 2. Start the server:

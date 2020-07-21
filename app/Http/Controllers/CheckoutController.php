@@ -30,7 +30,7 @@ class CheckoutController extends Controller
 
         $data = array(
             'type' => $request->type,
-            'originKey' => env('ORIGIN_KEY'),
+            'clientKey' => env('CLIENT_KEY'),
             'response' => json_encode($service->paymentMethods($params))
         );
 
