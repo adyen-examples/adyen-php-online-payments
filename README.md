@@ -41,7 +41,7 @@ composer install
 
 ## Usage
 
-1. Update **./.env** with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
+1. Rename **.env.example** to **.env** and update it with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
 
 ```
 API_KEY=YOUR_API_KEY_HERE
@@ -52,7 +52,7 @@ CLIENT_KEY=YOUR_CLIENT_KEY_HERE
 2. Start the server:
 
 ```
-php artisan serve --port=8080
+php artisan key:generate && php artisan serve --port=8080
 ```
 
 3. Visit [http://localhost:8080/](http://localhost:8080/) (**./resources/views/pages/index.blade.php**) to select an integration type.

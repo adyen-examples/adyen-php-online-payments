@@ -19,114 +19,123 @@ class CheckoutController extends Controller
         return view('pages.preview')->with('type', $type);
     }
 
+    public function checkout(Request $request){
+        $data = array(
+            'type' => $request->type,
+            'clientKey' => env('CLIENT_KEY')
+        );
+
+        return view('pages.payment')->with($data);
+    }
+
+    // Result pages
+    public function result(Request $request){
+        $type = $request->type;
+        return view('pages.result')->with('type', $type);
+    }
+
+    /* ################# API ENDPOINTS ###################### */
+    // The API routes are exempted from app/Http/Middleware/VerifyCsrfToken.php
+
     public function getPaymentMethods(Request $request){
         $client = $this->initializeClient();
         $service = new \Adyen\Service\Checkout($client);
+
+        error_log("Request for getPaymentMethods $request");
 
         $params = array(
             "merchantAccount" => env('MERCHANT_ACCOUNT'),
             "channel" => "Web"
         );
 
-        $data = array(
-            'type' => $request->type,
-            'clientKey' => env('CLIENT_KEY'),
-            'response' => json_encode($service->paymentMethods($params))
-        );
+        $response = $service->paymentMethods($params);
 
-        return view('layouts.payment')->with($data);
+        return $response;
     }
 
     public function initiatePayment(Request $request){
         $client = $this->initializeClient();
         $service = new \Adyen\Service\Checkout($client);
 
+        error_log("Request for initiatePayment $request");
+
+        $orderRef = uniqid();
         $params = array(
             "amount" => array(
                 "currency" => $this->findCurrency(($request->paymentMethod)["type"]),
                 "value" => 1000
             ),
-            "reference" => "12345",
+            "channel" => "Web",
+            "reference" => $orderRef,
             "additionalData" => array(
-                "executeThreeD" => "true"
+                "allow3DS2" => "true"
             ),
+            "returnUrl" => "http://localhost:8080/api/handleShopperRedirect?orderRef=${orderRef}",
+            "merchantAccount" => env('MERCHANT_ACCOUNT'),
             "paymentMethod" => $request->paymentMethod,
-            "returnUrl" => "http://localhost:8080/api/handleShopperRedirect",
-            "merchantAccount" => env('MERCHANT_ACCOUNT')
+            "browserInfo" => $request->browserInfo
             );
-            
+
         $response = $service->payments($params);
 
-        $resultCode = $response["resultCode"];
-
         if (isset($response["action"])) {
-            $action = $response["action"];
-            \Cache::put('paymentData', $response["action"]["paymentData"]);
-        } else {
-            $action = NULL;
+            \Cache::put($orderRef, $response["action"]["paymentData"]);
         }
 
-        return ['resultCode' => $resultCode, 'action' => $action];
+        return $response;
+    }
+
+
+    public function submitAdditionalDetails(Request $request){
+        $client = $this->initializeClient();
+        $service = new \Adyen\Service\Checkout($client);
+
+        error_log("Request for submitAdditionalDetails $request");
+
+        $payload = array("details" => $request->details, "paymentData" => $request->paymentData);
+
+        $response = $service->paymentsDetails($payload);
+
+        return $response;
     }
 
     public function handleShopperRedirect(Request $request){
         $client = $this->initializeClient();
         $service = new \Adyen\Service\Checkout($client);
 
-        $payload = array("details" => $request->all(), "paymentData" => \Cache::pull('paymentData'));
+        error_log("Request for handleShopperRedirect $request");
+
+        $redirect = $request->all();
+
+        $details = array();
+        if (isset($redirect["payload"])) {
+          $details["payload"] = $redirect["payload"];
+        } else if (isset($redirect["redirectResult"])) {
+          $details["redirectResult"] = $redirect["redirectResult"];
+        } else {
+          $details["MD"] = $redirect["MD"];
+          $details["PaRes"] = $redirect["PaRes"];
+        }
+        $orderRef = $request->orderRef;
+
+        $payload = array("details" => $details, "paymentData" => \Cache::pull($orderRef));
 
         $response = $service->paymentsDetails($payload);
-
-        \Cache::forget('paymentData');
 
         switch ($response["resultCode"]) {
             case "Authorised":
-                return redirect()->route('success');
+                return redirect()->route('result', ['type' => 'success']);
             case "Pending":
             case "Received":
-                return redirect()->route('pending');
+                return redirect()->route('result', ['type' => 'pending']);
             case "Refused":
-                return redirect()->route('failed');
+                return redirect()->route('result', ['type' => 'failed']);
             default:
-                return redirect()->route('error');
+                return redirect()->route('result', ['type' => 'error']);
         }
     }
 
-    public function submitAdditionalDetails(Request $request){
-        $client = $this->initializeClient();
-        $service = new \Adyen\Service\Checkout($client);
-
-        $payload = array("details" => $request->details, "paymentData" => $request->paymentData);
-
-        $response = $service->paymentsDetails($payload);
-
-        $resultCode = $response["resultCode"];
-
-        if (isset($response["action"])) {
-            $action = $response["action"];
-        } else {
-            $action = NULL;
-        }
-
-        return ['resultCode' => $resultCode, 'action' => $action];
-    }
-
-    // Result pages
-    public function error(){
-        return view('pages.error');
-    }
-
-    public function failed(){
-        return view('pages.failed');
-    }
-
-    public function pending(){
-        return view('pages.pending');
-    }
-
-    public function success(){
-        return view('pages.success');
-    }
+    /* ################# end API ENDPOINTS ###################### */
 
     // Util functions
     public function findCurrency($type){
