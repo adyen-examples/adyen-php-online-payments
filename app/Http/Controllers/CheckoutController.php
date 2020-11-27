@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use \Cache;
-use App\Http\Traits\AdyenClientTrait;
 use Illuminate\Http\Request;
+use App\Http\AdyenClient;
 
 class CheckoutController extends Controller
 {
-    use AdyenClientTrait;
+    protected $checkout;
+
+    function __construct(AdyenClient $checkout) {
+        $this->checkout = $checkout->service;
+    }
 
     public function index(){
         return view('pages.index');
@@ -38,9 +42,6 @@ class CheckoutController extends Controller
     // The API routes are exempted from app/Http/Middleware/VerifyCsrfToken.php
 
     public function getPaymentMethods(Request $request){
-        $client = $this->initializeClient();
-        $service = new \Adyen\Service\Checkout($client);
-
         error_log("Request for getPaymentMethods $request");
 
         $params = array(
@@ -48,35 +49,37 @@ class CheckoutController extends Controller
             "channel" => "Web"
         );
 
-        $response = $service->paymentMethods($params);
+        $response = $this->checkout->paymentMethods($params);
 
         return $response;
     }
 
     public function initiatePayment(Request $request){
-        $client = $this->initializeClient();
-        $service = new \Adyen\Service\Checkout($client);
-
         error_log("Request for initiatePayment $request");
 
         $orderRef = uniqid();
         $params = array(
+            "merchantAccount" => env('MERCHANT_ACCOUNT'),
+            "channel" => "Web", // required
             "amount" => array(
                 "currency" => $this->findCurrency(($request->paymentMethod)["type"]),
-                "value" => 1000
+                "value" => 1000 // value is 10€ in minor units
             ),
-            "channel" => "Web",
-            "reference" => $orderRef,
+            "reference" => $orderRef, // required
+            // required for 3ds2 native flow
             "additionalData" => array(
                 "allow3DS2" => "true"
             ),
+            "origin" => "http://localhost:8080", // required for 3ds2 native flow
+            "shopperIP" => $request->ip(),// required by some issuers for 3ds2
+            // we pass the orderRef in return URL to get paymentData during redirects
+            // required for 3ds2 redirect flow
             "returnUrl" => "http://localhost:8080/api/handleShopperRedirect?orderRef=${orderRef}",
-            "merchantAccount" => env('MERCHANT_ACCOUNT'),
             "paymentMethod" => $request->paymentMethod,
-            "browserInfo" => $request->browserInfo
+            "browserInfo" => $request->browserInfo // required for 3ds2
             );
 
-        $response = $service->payments($params);
+        $response = $this->checkout->payments($params);
 
         if (isset($response["action"])) {
             \Cache::put($orderRef, $response["action"]["paymentData"]);
@@ -87,22 +90,16 @@ class CheckoutController extends Controller
 
 
     public function submitAdditionalDetails(Request $request){
-        $client = $this->initializeClient();
-        $service = new \Adyen\Service\Checkout($client);
-
         error_log("Request for submitAdditionalDetails $request");
 
         $payload = array("details" => $request->details, "paymentData" => $request->paymentData);
 
-        $response = $service->paymentsDetails($payload);
+        $response = $this->checkout->paymentsDetails($payload);
 
         return $response;
     }
 
     public function handleShopperRedirect(Request $request){
-        $client = $this->initializeClient();
-        $service = new \Adyen\Service\Checkout($client);
-
         error_log("Request for handleShopperRedirect $request");
 
         $redirect = $request->all();
@@ -120,7 +117,7 @@ class CheckoutController extends Controller
 
         $payload = array("details" => $details, "paymentData" => \Cache::pull($orderRef));
 
-        $response = $service->paymentsDetails($payload);
+        $response = $this->checkout->paymentsDetails($payload);
 
         switch ($response["resultCode"]) {
             case "Authorised":

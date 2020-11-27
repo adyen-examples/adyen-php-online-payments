@@ -41,6 +41,10 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->singleton('AdyenClient', function ($app) {
+    return new App\Http\AdyenClient();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
