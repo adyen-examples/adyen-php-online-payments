@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Adyen example application using the Laravel Framework.",
     "keywords": [
         "framework",
         "laravel"
@@ -9,11 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
-        "adyen/php-api-library": "^6.3",
+        "adyen/php-api-library": "^9.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^7.30.4",
         "laravel/tinker": "^2.0",
         "predis/predis": "^1.1"
     },

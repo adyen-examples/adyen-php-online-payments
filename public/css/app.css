@@ -376,13 +376,11 @@ a:hover {
 
 #dropin {
     width: 100%;
-    max-width: 450px;
 }
 
 @media screen and (max-width: 1076px) {
     #dropin {
         width: 100%;
-        max-width: 610px;
     }
 }
 
