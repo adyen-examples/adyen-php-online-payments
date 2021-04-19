@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use \Cache;
 use Illuminate\Http\Request;
 use App\Http\AdyenClient;
 
@@ -81,10 +80,6 @@ class CheckoutController extends Controller
 
         $response = $this->checkout->payments($params);
 
-        if (isset($response["action"])) {
-            \Cache::put($orderRef, $response["action"]["paymentData"]);
-        }
-
         return $response;
     }
 
@@ -105,17 +100,14 @@ class CheckoutController extends Controller
         $redirect = $request->all();
 
         $details = array();
-        if (isset($redirect["payload"])) {
-          $details["payload"] = $redirect["payload"];
-        } else if (isset($redirect["redirectResult"])) {
+        if (isset($redirect["redirectResult"])) {
           $details["redirectResult"] = $redirect["redirectResult"];
-        } else {
-          $details["MD"] = $redirect["MD"];
-          $details["PaRes"] = $redirect["PaRes"];
+        } else if (isset($redirect["payload"])) {
+          $details["payload"] = $redirect["payload"];
         }
         $orderRef = $request->orderRef;
 
-        $payload = array("details" => $details, "paymentData" => \Cache::pull($orderRef));
+        $payload = array("details" => $details);
 
         $response = $this->checkout->paymentsDetails($payload);
 
