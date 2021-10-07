@@ -69,6 +69,7 @@ class CheckoutController extends Controller
             "additionalData" => array(
                 "allow3DS2" => "true"
             ),
+            "shopperInteraction" => "Ecommerce",
             "origin" => "http://localhost:8080", // required for 3ds2 native flow
             "shopperIP" => $request->ip(),// required by some issuers for 3ds2
             // we pass the orderRef in return URL to get paymentData during redirects
