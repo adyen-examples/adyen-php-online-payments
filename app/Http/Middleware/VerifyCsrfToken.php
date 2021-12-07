@@ -12,9 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'api/getPaymentMethods',
-        'api/initiatePayment',
-        'api/handleShopperRedirect',
-        'api/submitAdditionalDetails'
+        'api/sessions'
     ];
 }
