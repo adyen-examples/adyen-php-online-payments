@@ -12,7 +12,7 @@
     {{-- The Checkout integration type will be rendered below --}}
     {{-- Drop-in includes styling out-of-the-box, so no additional CSS classes are needed. --}}
     <div class="payment-container">
-        <div id={{$type}} class="payment"></div>
+        <div id="payment" class="payment"></div>
     </div>
   </div>
 </div>
