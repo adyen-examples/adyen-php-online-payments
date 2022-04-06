@@ -14,13 +14,13 @@
     integrity="sha384-0IvbHDeulbhdg1tMDeFeGlmjiYoVT6YsbfAMKFU2lFd6YKUVk0Hgivcmva3j6mkK"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="css/app.css">
   <title>Checkout Demo</title>
 </head>
 <body>
     <header id="header">
     <a href="/">
-      <img src="{{ asset('img/mystore-logo.svg') }}" alt="">
+      <img src="img/mystore-logo.svg" alt="">
     </a>
   </header>
   <div class="container">

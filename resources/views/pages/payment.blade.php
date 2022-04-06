@@ -17,5 +17,5 @@
   </div>
 </div>
 
-<script type="text/javascript" src="{{ asset('js/adyenImplementation.js') }}"></script>
+<script type="text/javascript" src="js/adyenImplementation.js"></script>
 @endsection
