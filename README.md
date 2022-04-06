@@ -14,7 +14,7 @@ _NOTE: To allow the Adyen Drop-In and Components to load, you have to add gitpod
 ## Details
 
 This repository includes examples of PCI-compliant UI integrations for online payments with Adyen. Within this demo app, you'll find a simplified version of an e-commerce website, complete with commented code to highlight key features and concepts of Adyen's API. Check out the underlying code to see how you can integrate Adyen to give your shoppers the option to pay with their preferred payment methods, all in a seamless checkout experience.
-
+    
 ![Card checkout demo](public/img/cardcheckout.gif)
 
 ## Supported Integrations
