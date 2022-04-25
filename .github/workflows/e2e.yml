@@ -13,11 +13,14 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
-      - name: Build image (application)
-        run: docker-compose build
-      - name: Pull image
-        run: docker-compose pull test-image:latest
-      - name: Start container (application)
-        run: docker-compose run --rm --name test-image -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image:latest 
+      - name: Commpose up
+        run: docker-compose up
+        
+#      - name: Build image (application)
+#        run: docker-compose build
+#      - name: Pull image
+#        run: docker-compose pull test-image:latest
+#      - name: Start container (application)
+#        run: docker-compose run --rm --name test-image -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image:latest 
 #      - name: Run testing suite
 #        run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
