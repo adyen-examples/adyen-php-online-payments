@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b014a64dbb3e862db52c1420d604405",
+    "content-hash": "fa4cbbd31e33962cd815392dbbffa85d",
     "packages": [
         {
             "name": "adyen/php-api-library",
@@ -7742,7 +7742,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1.5"
+        "php": "^8.1.4"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
