@@ -1,10 +1,10 @@
-version: '3.8'
+version: '3.9'
 services:
   main:
     build:
       context: .
       dockerfile: Dockerfile
-    image: test-image
+    image: test-image:latest
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
       - .:/app
