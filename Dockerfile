@@ -3,6 +3,7 @@ FROM php:8.1.0alpha3-fpm-alpine
 WORKDIR /app
 COPY . /app
 
+RUN brew install composer
 RUN composer install
 
 COPY . .
