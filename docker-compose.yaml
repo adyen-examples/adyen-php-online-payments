@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     image: test-image:latest
-    command: 'php artisan serve --host=0.0.0.0'
+    command: 'php artisan key:generate && php artisan serve --host=0.0.0.0'
     volumes:
-      - .:/app
+      - .:/app/
     ports:
       - 8080:8080
