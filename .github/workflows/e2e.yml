@@ -14,7 +14,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
       - name: Compose build
-        uses: docker-compose up
+        run: docker-compose up
         
 #      - name: Build image (application)
 #        run: docker build -t test-image:latest .
