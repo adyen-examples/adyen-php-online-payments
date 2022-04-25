@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: test-image
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
       - .:/app
