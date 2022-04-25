@@ -16,6 +16,6 @@ jobs:
       - name: Build image (application)
         run: docker-compose build
       - name: Start container (application)
-        run: docker-compose run --rm --name test-image -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image:latest 
+        run: docker-compose run --rm --name test-image -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image 
 #      - name: Run testing suite
 #        run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
