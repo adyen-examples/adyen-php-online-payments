@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install PHP
+    - name: Install PHP@8.1.5
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
