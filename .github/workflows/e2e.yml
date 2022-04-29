@@ -17,8 +17,8 @@ jobs:
         run: export API_KEY="${{ secrets.API_KEY }}" && export MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} && export CLIENT_KEY=${{ secrets.CLIENT_KEY }}
       - name: Use docker compose up to build image and run detached
         run: docker-compose up
-      - name: Run testing suite
-        run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
+ #     - name: Run testing suite
+  #      run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
 #      - name: Build image (application)
 #        run: docker-compose build
 #      - name: Pull image
