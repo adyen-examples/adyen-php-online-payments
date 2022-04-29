@@ -24,6 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Running docker-compose
-        run: docker run --rm -d -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image 
+        run: docker run --rm -p 8080:8080 -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }} test-image 
       - name: Run testing suite
         run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
