@@ -15,6 +15,13 @@ jobs:
         uses: actions/checkout@v2
       - name: setting environment variables
         run: export API_KEY="${{ secrets.API_KEY }}" && export MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} && export CLIENT_KEY=${{ secrets.CLIENT_KEY }}
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: npm install
       - name: Use docker compose up to build image and run detached
         run: docker-compose up
  #     - name: Run testing suite
