@@ -8,7 +8,7 @@ class AdyenClient
 
     function __construct() {
         $client = new \Adyen\Client();
-        $client->setXApiKey(env('API_KEY'));
+        $client->setXApiKey(env('ADYEN_API_KEY'));
         $client->setEnvironment(\Adyen\Environment::TEST);
 
         $this->service = new \Adyen\Service\Checkout($client);
