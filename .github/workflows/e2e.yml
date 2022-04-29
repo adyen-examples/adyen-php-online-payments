@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
-      - name: setting environment variables
-        run: export API_KEY="${{ secrets.API_KEY }}" && export MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} && export CLIENT_KEY=${{ secrets.CLIENT_KEY }}
       - name: Start containers
         run: docker-compose -f "docker-compose.yaml" up -d --build
       - name: Install node
