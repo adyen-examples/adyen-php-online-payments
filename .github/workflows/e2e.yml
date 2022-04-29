@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Running docker-compose
-        run: docker-compose run test-image 
+        run: docker run test-image 
 #      - name: Use docker compose up to build image and run detached
   #      run: docker-compose up
  #     - name: Run testing suite
