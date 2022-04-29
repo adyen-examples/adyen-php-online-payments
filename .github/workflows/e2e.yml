@@ -13,8 +13,10 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
+      - name: setting environment variables
+        run: export API_KEY="${{ secrets.API_KEY }}" && export MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} && export CLIENT_KEY=${{ secrets.CLIENT_KEY }}
       - name: Use docker compose up to build image and run detached
-        run: docker-compose up -d -e API_KEY="${{ secrets.API_KEY }}" -e MERCHANT_ACCOUNT=${{ secrets.MERCHANT_ACCOUNT }} -e CLIENT_KEY=${{ secrets.CLIENT_KEY }}
+        run: docker-compose up -d
       - name: Run testing suite
         run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
 #      - name: Build image (application)
