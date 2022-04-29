@@ -23,5 +23,7 @@ jobs:
         run: npm install
       - name: Running docker-compose
         run: docker run --rm -d --name test-image -e ADYEN_API_KEY="${{ secrets.ADYEN_API_KEY }}" -e ADYEN_MERCHANT_ACCOUNT=${{ secrets.ADYEN_MERCHANT_ACCOUNT }} -e ADYEN_CLIENT_KEY=${{ secrets.ADYEN_CLIENT_KEY }} test-image:latest
+      - name: test
+        run: docker logs
       - name: Run testing suite
         run: docker run --rm --name adyen-testing-suite --network host ghcr.io/adyen-examples/adyen-testing-suite:v0.0.1
