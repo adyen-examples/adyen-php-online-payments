@@ -1,4 +1,4 @@
-FROM php:8.1.0alpha3-fpm-alpine
+FROM php:8.0.2-fpm-alpine3.13
 
 RUN docker-php-ext-install pdo pdo_mysql sockets
 RUN curl -sS https://getcomposer.org/installer | php -- \
