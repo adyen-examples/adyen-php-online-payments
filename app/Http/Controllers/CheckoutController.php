@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\AdyenClient;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class CheckoutController extends Controller
 {
@@ -61,5 +62,25 @@ class CheckoutController extends Controller
 
         return $this->checkout->sessions($params);
     }
+    // Webhook integration
+    public function webhooks(Request $request){
+        $hmac_key = env('ADYEN_HMAC_KEY');
+        $validator = new \Adyen\Util\HmacSignature;
+        $out = new ConsoleOutput();
 
+        $notifications = $request->getContent();
+        $notifications = json_decode($notifications, true);
+        $notificationItems = $notifications['notificationItems'];
+
+        foreach ($notificationItems as $item) {
+            $requestItem = $item['NotificationRequestItem'];
+            if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
+                $out->writeln("MerchantReference: " . json_encode($requestItem['merchantReference'], true));
+                $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
+            } else {
+                return response()->json(["[refused]", 401]);
+            }
+        }
+        return response()->json(["[accepted]", 200]);
+    }
 }
