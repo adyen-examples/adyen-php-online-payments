@@ -66,7 +66,7 @@ ADYEN_CLIENT_KEY=YOUR_CLIENT_KEY_HERE
 2. Start the server:
 
 ```
-php artisan key:generate && php artisan serve --port=8080
+php artisan key:generate && php artisan serve
 ```
 
 3. Visit [http://localhost:8080/](http://localhost:8080/) (**./resources/views/pages/index.blade.php**) to select an integration type.
