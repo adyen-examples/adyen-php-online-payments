@@ -22,7 +22,7 @@ jobs:
 #      - name: Install dependencies
 #        run: npm install
       - name: Running docker-compose
-        run: docker run --rm --name test-image -e ADYEN_API_KEY="${{ secrets.ADYEN_API_KEY }}" -e ADYEN_MERCHANT_ACCOUNT=${{ secrets.ADYEN_MERCHANT_ACCOUNT }} -e ADYEN_CLIENT_KEY=${{ secrets.ADYEN_CLIENT_KEY }} test-image:latest
+        run: docker run --rm --name test-image -p 8080:8080 -e ADYEN_API_KEY="${{ secrets.ADYEN_API_KEY }}" -e ADYEN_MERCHANT_ACCOUNT=${{ secrets.ADYEN_MERCHANT_ACCOUNT }} -e ADYEN_CLIENT_KEY=${{ secrets.ADYEN_CLIENT_KEY }} test-image:latest
       - name: test
         run: docker logs test-image
       - name: Run testing suite
