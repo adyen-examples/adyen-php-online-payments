@@ -47,6 +47,10 @@ class CheckoutController extends Controller
 
     public function sessions(Request $request){
         $orderRef = uniqid();
+        
+        /*Setting base url so demo works in gitpod.io*/
+        $baseURL = url()->previous();
+        $baseURL = substr($baseURL, 0, -15);
 
         $params = array(
             "channel" => "Web",
@@ -57,7 +61,7 @@ class CheckoutController extends Controller
             'countryCode' => 'NL',
             "merchantAccount" => env('ADYEN_MERCHANT_ACCOUNT'),
             "reference" => $orderRef, // required
-            "returnUrl" => "http://localhost:8080/redirect?orderRef=${orderRef}",
+            "returnUrl" => "${baseURL}/redirect?orderRef=${orderRef}",
             );
 
         return $this->checkout->sessions($params);
