@@ -19,7 +19,7 @@ This repository includes examples of PCI-compliant UI integrations for online pa
 
 ## Supported Integrations
 
-**Laravel 7** demos of the following client-side integrations are currently available in this repository:
+**Laravel 9** demos of the following client-side integrations are currently available in this repository:
 
 -   [Drop-in](https://docs.adyen.com/checkout/drop-in-web)
 -   [Component](https://docs.adyen.com/checkout/components-web)
@@ -36,7 +36,7 @@ Each demo leverages Adyen's API Library for PHP ([GitHub](https://github.com/Ady
 
 ## Requirements
 
-PHP 7.2.5+
+PHP 8.0.0+
 
 ## Installation
 
