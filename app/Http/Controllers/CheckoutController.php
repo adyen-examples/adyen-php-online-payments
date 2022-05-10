@@ -25,14 +25,14 @@ class CheckoutController extends Controller
     public function checkout(Request $request){
         $data = array(
             'type' => $request->type,
-            'clientKey' => env('CLIENT_KEY')
+            'clientKey' => env('ADYEN_CLIENT_KEY')
         );
 
         return view('pages.payment')->with($data);
     }
 
     public function redirect(Request $request){
-        return view('pages.redirect')->with('clientKey', env('CLIENT_KEY'));
+        return view('pages.redirect')->with('clientKey', env('ADYEN_CLIENT_KEY'));
     }
 
     // Result pages
@@ -54,7 +54,7 @@ class CheckoutController extends Controller
                 "value" => 1000 // value is 10€ in minor units
             ),
             'countryCode' => 'NL',
-            "merchantAccount" => env('MERCHANT_ACCOUNT'),
+            "merchantAccount" => env('ADYEN_MERCHANT_ACCOUNT'),
             "reference" => $orderRef, // required
             "returnUrl" => "http://localhost:8080/redirect?orderRef=${orderRef}",
             );

@@ -7,12 +7,12 @@
     <div class="order-summary">
       <ul class="order-summary-list">
         <li class="order-summary-list-list-item">
-          <img src="img/sunglasses.png" class="order-summary-list-list-item-image" alt="">
+          <img src="/img/sunglasses.png" class="order-summary-list-list-item-image" alt="">
           <p class="order-summary-list-list-item-title">Sunglasses</p>
           <p class="order-summary-list-list-item-price">5.00</p>
         </li>
         <li class="order-summary-list-list-item">
-          <img src="img/headphones.png" class="order-summary-list-list-item-image" alt="">
+          <img src="/img/headphones.png" class="order-summary-list-list-item-image" alt="">
           <p class="order-summary-list-list-item-title">Headphones</p>
           <p class="order-summary-list-list-item-price">5.00</p>
         </li>
