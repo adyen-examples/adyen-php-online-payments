@@ -1,5 +1,5 @@
 # Dockerfile
-FROM php:8.1-cli
+FROM bitnami/laravel:9.1.7
 
 RUN apt-get update -y && apt-get install -y libmcrypt-dev
 
