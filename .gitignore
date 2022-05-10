@@ -17,3 +17,4 @@ installer
 
 .idea
 .vscode
+.env.bak
