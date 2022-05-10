@@ -54,23 +54,26 @@ composer install
 
 ## Usage
 
-1. Rename **.env.example** to **.env** and update it with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
+1. Rename **.env.example** to **.env** 
+
+2. Set environment variables for the required configuration ([API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name)
+
+On linux that looks like this :
 
 ```
-PORT=8080
-ADYEN_HMAC_KEY=YOUR_HMAC_KEY_HERE
-ADYEN_API_KEY=YOUR_API_KEY_HERE
-ADYEN_MERCHANT_ACCOUNT=YOUR_MERCHANT_ACCOUNT_HERE
-ADYEN_CLIENT_KEY=YOUR_CLIENT_KEY_HERE
+export ADYEN_API_KEY=yourAdyenApiKey
+export ADYEN_MERCHANT_ACCOUNT=yourAdyenMerchantAccount
+export ADYEN_CLIENT_KEY=yourAdyenClientKey
+export ADYEN_HMAC_KEY=yourHmacKey
 ```
 
-2. Start the server:
+3. Start the server:
 
 ```
 php artisan key:generate && php artisan serve
 ```
 
-3. Visit [http://localhost:8080/](http://localhost:8080/) (**./resources/views/pages/index.blade.php**) to select an integration type.
+4. Visit [http://localhost:8080/](http://localhost:8080/) (**./resources/views/pages/index.blade.php**) to select an integration type.
 
 To try out integrations with test card numbers and payment method details, see [Test card numbers](https://docs.adyen.com/development-resources/test-cards/test-card-numbers).
 
