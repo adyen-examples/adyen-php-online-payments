@@ -19,7 +19,7 @@ This repository includes examples of PCI-compliant UI integrations for online pa
 
 ## Supported Integrations
 
-**Laravel 7** demos of the following client-side integrations are currently available in this repository:
+**Laravel 9** demos of the following client-side integrations are currently available in this repository:
 
 -   [Drop-in](https://docs.adyen.com/checkout/drop-in-web)
 -   [Component](https://docs.adyen.com/checkout/components-web)
@@ -36,7 +36,7 @@ Each demo leverages Adyen's API Library for PHP ([GitHub](https://github.com/Ady
 
 ## Requirements
 
-PHP 7.2.5+
+PHP 8.0.0+
 
 ## Installation
 
@@ -57,6 +57,7 @@ composer install
 1. Rename **.env.example** to **.env** and update it with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
 
 ```
+PORT=8080
 ADYEN_HMAC_KEY=YOUR_HMAC_KEY_HERE
 ADYEN_API_KEY=YOUR_API_KEY_HERE
 ADYEN_MERCHANT_ACCOUNT=YOUR_MERCHANT_ACCOUNT_HERE
@@ -66,7 +67,7 @@ ADYEN_CLIENT_KEY=YOUR_CLIENT_KEY_HERE
 2. Start the server:
 
 ```
-php artisan key:generate && php artisan serve --port=8080
+php artisan key:generate && php artisan serve
 ```
 
 3. Visit [http://localhost:8080/](http://localhost:8080/) (**./resources/views/pages/index.blade.php**) to select an integration type.
