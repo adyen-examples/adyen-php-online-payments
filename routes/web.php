@@ -9,3 +9,4 @@ Route::get('/redirect', 'CheckoutController@redirect');
 Route::get('/result/{type}', 'CheckoutController@result')->name('result');
 // The API routes are exempted from app/Http/Middleware/VerifyCsrfToken.php
 Route::post('/api/sessions', 'CheckoutController@sessions');
+Route::post('api/webhooks/notifications','CheckoutController@webhooks');

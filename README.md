@@ -57,6 +57,7 @@ composer install
 1. Rename **.env.example** to **.env** and update it with your [API key](https://docs.adyen.com/user-management/how-to-get-the-api-key), [Client Key](https://docs.adyen.com/user-management/client-side-authentication), and merchant account name:
 
 ```
+ADYEN_HMAC_KEY=YOUR_HMAC_KEY_HERE
 ADYEN_API_KEY=YOUR_API_KEY_HERE
 ADYEN_MERCHANT_ACCOUNT=YOUR_MERCHANT_ACCOUNT_HERE
 ADYEN_CLIENT_KEY=YOUR_CLIENT_KEY_HERE
