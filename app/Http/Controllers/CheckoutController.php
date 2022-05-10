@@ -78,7 +78,7 @@ class CheckoutController extends Controller
 
         foreach ($notificationItems as $item) {
             $requestItem = $item['NotificationRequestItem'];
-            if (empty($hmac_key) || $validator->isValidNotificationHmac($hmac_key, $requestItem)) {
+            if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
                 $out->writeln("MerchantReference: " . json_encode($requestItem['merchantReference'], true));
                 $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
             } else {
