@@ -14,7 +14,7 @@
         "guzzlehttp/guzzle": "^7.4.2",
         "laravel/framework": "^v9.9.0",
         "laravel/tinker": "^2.7.2",
-        "predis/predis": "^1.1",
+        "predis/predis": "^2.0",
         "symfony/console": "^6.0.2",
         "spatie/laravel-ignition": "^1.2.2"
     },
