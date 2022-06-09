@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6506540dab3d72d8ea0b925348275944",
+    "content-hash": "d963c73084472682ed0cb5337a22f06a",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "12.2.0",
+            "version": "13.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "18cee8f11f4baa096907e4fe06172a6f9a528d83"
+                "reference": "f3ba9995db89fe62b17a15cb4cfd6dae6e766848"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/18cee8f11f4baa096907e4fe06172a6f9a528d83",
-                "reference": "18cee8f11f4baa096907e4fe06172a6f9a528d83",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/f3ba9995db89fe62b17a15cb4cfd6dae6e766848",
+                "reference": "f3ba9995db89fe62b17a15cb4cfd6dae6e766848",
                 "shasum": ""
             },
             "require": {
@@ -53,9 +53,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/12.2.0"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/13.0.0"
             },
-            "time": "2022-05-04T13:59:18+00:00"
+            "time": "2022-06-08T15:22:34+00:00"
         },
         {
             "name": "brick/math",
@@ -1665,16 +1665,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "247918972acd74356b0a91dfaa5adcaec069b6c0"
+                "reference": "5579edf28aee1190a798bfa5be8bc16c563bd524"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/247918972acd74356b0a91dfaa5adcaec069b6c0",
-                "reference": "247918972acd74356b0a91dfaa5adcaec069b6c0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5579edf28aee1190a798bfa5be8bc16c563bd524",
+                "reference": "5579edf28aee1190a798bfa5be8bc16c563bd524",
                 "shasum": ""
             },
             "require": {
@@ -1753,7 +1753,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.6.0"
+                "source": "https://github.com/Seldaek/monolog/tree/2.7.0"
             },
             "funding": [
                 {
@@ -1765,7 +1765,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-10T09:36:00+00:00"
+            "time": "2022-06-09T08:59:12+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -7749,5 +7749,5 @@
         "php": "^8.0.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
