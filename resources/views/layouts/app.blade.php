@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.13.1/adyen.js"
-    integrity="sha384-M3DQX1ovYxJTUt7n1uN1IyRvhCtILxV+AwB5hHntGwmiYW2uRr4lmJnj0ToaqyFy"
-    crossorigin="anonymous"></script>
+  <!-- Adyen JS from TEST environment (change to live for production)-->
+  <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.16.0/adyen.js"
+    integrity="sha384-eOf0O1MTPGB1DQpr+Yha0MrmJruQb5S82+tuyo4sLiyfo1hgbf6W+fNfLjjU7Sks"
+    crossorigin="anonymous"></script>    
 
-  <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.13.1/adyen.css"
-    integrity="sha384-r7Ye68dqFoSnkRA9wgyLKiVNga2c+G98mIVq4FT+Rmi6ba0EH2/YI3ZGYvpZ3zIM"
-    crossorigin="anonymous">
+  <!-- Adyen CSS from TEST environment (change to live for production)-->
+	<link rel="stylesheet"
+	  href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.16.0/adyen.css"
+		integrity="sha384-zy4t7axSdzHBMGqwJAynlv3eFVNiWw68LMf7vgKXxl2zZ6A8FlpucOoA/J//GBaQ"
+		crossorigin="anonymous">  
 
   <link rel="stylesheet" href="/css/app.css">
   <title>Checkout Demo</title>
