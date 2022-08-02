@@ -16,7 +16,7 @@ tasks:
 ports:
 - port: 8080
   onOpen: open-preview
-
+  visibility: public
 
 vscode:
   extensions:
