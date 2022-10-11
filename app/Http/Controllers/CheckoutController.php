@@ -76,6 +76,8 @@ class CheckoutController extends Controller
         $notifications = json_decode($notifications, true);
         $notificationItems = $notifications['notificationItems'];
 
+        $out->writeln("Notifications: ", $notificationItems);
+
         foreach ($notificationItems as $item) {
             $requestItem = $item['NotificationRequestItem'];
             if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
