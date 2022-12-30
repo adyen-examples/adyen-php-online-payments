@@ -47,22 +47,26 @@ class CheckoutController extends Controller
 
     public function sessions(Request $request){
         $orderRef = uniqid();
-        
+
         /*Setting base url so demo works in gitpod.io*/
         $baseURL = url()->previous();
         $baseURL = substr($baseURL, 0, -15);
 
-        $params = array(
+        $params = [
             "channel" => "Web",
-            "amount" => array(
+            "amount" => [
                 "currency" => "EUR",
-                "value" => 1000 // value is 10€ in minor units
-            ),
-            'countryCode' => 'NL',
+                "value" => 10000 // value is 100€ in minor units
+            ],
+            "countryCode" => "NL",
             "merchantAccount" => env('ADYEN_MERCHANT_ACCOUNT'),
             "reference" => $orderRef, // required
             "returnUrl" => "${baseURL}/redirect?orderRef=${orderRef}",
-            );
+            "lineItems" => [
+                ["quantity" => 1, "amountIncludingTax" => 5000 , "description" => "Sunglasses"],
+                ["quantity" => 1, "amountIncludingTax" => 5000 , "description" => "Headphones"],
+            ]
+        ];
 
         return $this->checkout->sessions($params);
     }
