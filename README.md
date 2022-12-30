@@ -23,14 +23,17 @@ This repository includes examples of PCI-compliant UI integrations for online pa
 
 -   [Drop-in](https://docs.adyen.com/checkout/drop-in-web)
 -   [Component](https://docs.adyen.com/checkout/components-web)
-    -   ACH
-    -   Alipay
-    -   Card (3DS2)
-    -   iDEAL
-    -   Dotpay
-    -   giropay
-    -   SEPA Direct Debit
-    -   SOFORT
+    - ACH
+    - Alipay
+    - Boleto Bancário
+    - Card (3DS2)
+    - Dotpay
+    - giropay
+    - iDEAL
+    - Klarna (Pay now, Pay later, Slice it)
+    - SEPA Direct Debit
+    - SOFORT
+
 
 Each demo leverages Adyen's API Library for PHP ([GitHub](https://github.com/Adyen/adyen-php-api-library) | [Docs](https://docs.adyen.com/development-resources/libraries#php)).
 
