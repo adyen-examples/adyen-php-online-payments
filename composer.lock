@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baada964829d228a532df549599dd97f",
+    "content-hash": "8c8144fa5d914649dcaf5d954f3b453e",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "13.0.4",
+            "version": "14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "45f01a219d2333e7be55b070ac44a48372d13bf7"
+                "reference": "e0d66e08f8d262d65b7f480e1ad6f76f5b05a470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/45f01a219d2333e7be55b070ac44a48372d13bf7",
-                "reference": "45f01a219d2333e7be55b070ac44a48372d13bf7",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/e0d66e08f8d262d65b7f480e1ad6f76f5b05a470",
+                "reference": "e0d66e08f8d262d65b7f480e1ad6f76f5b05a470",
                 "shasum": ""
             },
             "require": {
@@ -26,15 +26,15 @@
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "monolog/monolog": "^1.16 || ^2.0",
+                "monolog/monolog": "^1.16 || ^2.0 || ^3.0",
                 "php": ">=7.3"
             },
             "require-dev": {
                 "dms/phpunit-arraysubset-asserts": "0.4.0",
                 "friendsofphp/php-cs-fixer": "*",
                 "php-coveralls/php-coveralls": "2.5.3",
-                "phpunit/phpunit": "9.5.24",
-                "squizlabs/php_codesniffer": "3.7.1"
+                "phpunit/phpunit": "9.6.5",
+                "squizlabs/php_codesniffer": "3.7.2"
             },
             "type": "library",
             "autoload": {
@@ -53,9 +53,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/13.0.4"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/14.0.0"
             },
-            "time": "2022-09-21T08:52:56+00:00"
+            "time": "2023-03-20T10:25:08+00:00"
         },
         {
             "name": "brick/math",
