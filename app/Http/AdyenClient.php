@@ -11,6 +11,6 @@ class AdyenClient
         $client->setXApiKey(env('ADYEN_API_KEY'));
         $client->setEnvironment(\Adyen\Environment::TEST);
 
-        $this->service = new \Adyen\Service\Checkout($client);
+        $this->service = new \Adyen\Service\Checkout\PaymentsApi($client);
     }
 }
