@@ -82,15 +82,18 @@ class CheckoutController extends Controller
 
         $out->writeln("Notifications: ", $notificationItems);
 
-        foreach ($notificationItems as $item) {
-            $requestItem = $item['NotificationRequestItem'];
-            if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
-                $out->writeln("MerchantReference: " . json_encode($requestItem['merchantReference'], true));
-                $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
-            } else {
-                return response()->json(["[refused]", 401]);
-            }
+        // fetch first (and only) NotificationRequestItem
+        $item = array_shift($notificationItems);
+        $requestItem = $item['NotificationRequestItem'];
+
+        if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
+            // consume event asynchronously
+            // ie INSERT into DB or queue
+            $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
+        } else {
+            return response()->json(["[refused]", 401]);
         }
+
         return response()->json(["[accepted]", 200]);
     }
 }
