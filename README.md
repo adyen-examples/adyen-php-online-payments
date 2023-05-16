@@ -1,4 +1,4 @@
-# Adyen [online payment](https://docs.adyen.com/checkout) integration demos
+# Adyen [online payment](https://docs.adyen.com/online-payments) integration demos
 
 ## Run this integration in seconds using [Gitpod](https://gitpod.io/)
 
@@ -19,10 +19,10 @@ This repository includes examples of PCI-compliant UI integrations for online pa
 
 ## Supported Integrations
 
-**Laravel 9** demos of the following client-side integrations are currently available in this repository:
+[Online payments](https://docs.adyen.com/online-payments) **Laravel 9** demos of the following client-side integrations are currently available in this repository:
 
--   [Drop-in](https://docs.adyen.com/checkout/drop-in-web)
--   [Component](https://docs.adyen.com/checkout/components-web)
+- Drop-in
+- Components
     - ACH
     - Alipay
     - Boleto Bancário
