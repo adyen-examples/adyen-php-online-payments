@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v15.0.0",
+            "version": "v15.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "7c88d9d3fbc8479f1647990f63bf20cfe469f34c"
+                "reference": "70c16fa7a4aa0ee27bc9dda214bca2b64290d096"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/7c88d9d3fbc8479f1647990f63bf20cfe469f34c",
-                "reference": "7c88d9d3fbc8479f1647990f63bf20cfe469f34c",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/70c16fa7a4aa0ee27bc9dda214bca2b64290d096",
+                "reference": "70c16fa7a4aa0ee27bc9dda214bca2b64290d096",
                 "shasum": ""
             },
             "require": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v15.0.0"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v15.1.0"
             },
-            "time": "2023-08-08T08:05:08+00:00"
+            "time": "2023-08-23T13:35:27+00:00"
         },
         {
             "name": "brick/math",
