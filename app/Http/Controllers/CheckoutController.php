@@ -14,52 +14,45 @@ class CheckoutController extends Controller
 {
     protected $checkout;
 
-    public function __construct(AdyenClient $checkout)
-    {
+    function __construct(AdyenClient $checkout) {
         $this->checkout = $checkout->service;
     }
 
-    public function index()
-    {
+    public function index(){
         return view('pages.index');
     }
 
-    public function preview(Request $request)
-    {
+    public function preview(Request $request){
         $type = $request->type;
-        return view('pages.preview', ['type' => $type]);
+        return view('pages.preview')->with('type', $type);
     }
 
-    public function checkout(Request $request)
-    {
-        $data = [
+    public function checkout(Request $request){
+        $data = array(
             'type' => $request->type,
-            'clientKey' => Config::get('adyen.client_key'),
-        ];
+            'clientKey' => env('ADYEN_CLIENT_KEY')
+        );
 
-        return view('pages.payment', $data);
+        return view('pages.payment')->with($data);
     }
 
-    public function redirect(Request $request)
-    {
-        $data = ['clientKey' => Config::get('adyen.client_key')];
-        return view('pages.redirect', $data);
+    public function redirect(Request $request){
+        return view('pages.redirect')->with('clientKey', env('ADYEN_CLIENT_KEY'));
     }
 
-    public function result(Request $request)
-    {
+    // Result pages
+    public function result(Request $request){
         $type = $request->type;
-        return view('pages.result', ['type' => $type]);
+        return view('pages.result')->with('type', $type);
     }
 
     /* ################# API ENDPOINTS ###################### */
     // The API routes are exempted from app/Http/Middleware/VerifyCsrfToken.php
 
-    public function sessions(Request $request)
-    {
+    public function sessions(Request $request){
         $orderRef = uniqid();
 
-        // Setting the base URL
+        /*Setting base url so demo works in gitpod.io*/
         $baseURL = url()->previous();
         $baseURL = substr($baseURL, 0, -15);
 
@@ -70,20 +63,19 @@ class CheckoutController extends Controller
         $lineItem2 = new LineItem();
         $lineItem2->setQuantity(1)->setAmountIncludingTax(5000)->setDescription("Headphones");
 
-        // Creating the actual session request
+        // Creating actual session request
         $sessionRequest = new CreateCheckoutSessionRequest();
         $sessionRequest
-            ->setChannel("Web")
-            ->setAmount($amount)
-            ->setCountryCode("NL")
-            ->setMerchantAccount(Config::get('adyen.merchant_account'))
-            ->setReference($orderRef)
-            ->setReturnUrl("${baseURL}/redirect?orderRef=${orderRef}")
-            ->setLineItems([$lineItem1, $lineItem2]);
+        ->setChannel("Web")
+        ->setAmount($amount)
+        ->setCountryCode("NL")
+        ->setMerchantAccount(env('ADYEN_MERCHANT_ACCOUNT'))
+        ->setReference($orderRef)
+        ->setReturnUrl("${baseURL}/redirect?orderRef=${orderRef}")
+        ->setLineItems([$lineItem1, $lineItem2]);
 
-        return $this->checkout->sessions($sessionRequest);
-    }
-
+        return $this->checkout->sessions($sessionRequest);}
+        
     // Webhook integration
     public function webhooks(Request $request)
     {
