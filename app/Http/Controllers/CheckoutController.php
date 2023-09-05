@@ -75,28 +75,30 @@ class CheckoutController extends Controller
         return $this->checkout->sessions($sessionRequest);}
     // Webhook integration
     public function webhooks(Request $request){
+
         $hmac_key = env('ADYEN_HMAC_KEY');
         $validator = new \Adyen\Util\HmacSignature;
-        $out = new ConsoleOutput();
 
+        $out = new ConsoleOutput();
+        
         $notifications = $request->getContent();
+        // Add null handling
+
         $notifications = json_decode($notifications, true);
         $notificationItems = $notifications['notificationItems'];
-
-        $out->writeln("Notifications: ", $notificationItems);
 
         // fetch first (and only) NotificationRequestItem
         $item = array_shift($notificationItems);
         $requestItem = $item['NotificationRequestItem'];
 
-        if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
+        if ($validator->isValidNotificationHMAC($hmac_key, $requestItem)) {
             // consume event asynchronously
             // ie INSERT into DB or queue
             $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
         } else {
-            return response()->json(["[refused]", 401]);
+            return response('[refused]', 401);
         }
 
-        return response()->json(["[accepted]", 200]);
+        return response('[accepted]', 200);
     }
 }
