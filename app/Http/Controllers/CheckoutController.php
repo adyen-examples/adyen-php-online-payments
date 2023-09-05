@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Adyen\Model\Checkout\CreateCheckoutSessionRequest;
 use Adyen\Model\Checkout\Amount;
 use Adyen\Model\Checkout\LineItem;
 use Illuminate\Http\Request;
 use App\Http\AdyenClient;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class CheckoutController extends Controller
@@ -73,30 +75,36 @@ class CheckoutController extends Controller
         ->setLineItems([$lineItem1, $lineItem2]);
 
         return $this->checkout->sessions($sessionRequest);}
+        
     // Webhook integration
-    public function webhooks(Request $request){
-        $hmac_key = env('ADYEN_HMAC_KEY');
-        $validator = new \Adyen\Util\HmacSignature;
+    public function webhooks(Request $request)
+    {
+        $hmacKey = env('ADYEN_HMAC_KEY');
+        $validator = new \Adyen\Util\HmacSignature();
         $out = new ConsoleOutput();
 
         $notifications = $request->getContent();
+        // Add null handling
         $notifications = json_decode($notifications, true);
-        $notificationItems = $notifications['notificationItems'];
 
-        $out->writeln("Notifications: ", $notificationItems);
+        if (isset($notifications['notificationItems'])) {
+            $notificationItems = $notifications['notificationItems'];
 
-        // fetch first (and only) NotificationRequestItem
-        $item = array_shift($notificationItems);
-        $requestItem = $item['NotificationRequestItem'];
+            // Fetch the first (and only) NotificationRequestItem
+            $item = array_shift($notificationItems);
 
-        if ($validator->isValidNotificationHmac($hmac_key, $requestItem)) {
-            // consume event asynchronously
-            // ie INSERT into DB or queue
-            $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
-        } else {
-            return response()->json(["[refused]", 401]);
+            if (isset($item['NotificationRequestItem'])) {
+                $requestItem = $item['NotificationRequestItem'];
+
+                if ($validator->isValidNotificationHMAC($hmacKey, $requestItem)) {
+                    // Consume the event asynchronously (e.g., INSERT into DB or queue)
+                    $out->writeln("Eventcode " . json_encode($requestItem['eventCode'], true));
+                } else {
+                    return response('[refused]', 401);
+                }
+            }
         }
 
-        return response()->json(["[accepted]", 200]);
+        return response('[accepted]', 200);
     }
 }
