@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.2.0",
+        "nunomaduro/collision": "^7.9.0",
         "phpunit/phpunit": "^9.5.20"
     },
     "config": {
