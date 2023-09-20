@@ -1,5 +1,9 @@
 # Adyen [online payment](https://docs.adyen.com/online-payments) integration demos
 
+[![PHP Composer](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/build.yml/badge.svg)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/build.yml) 
+[![E2E (Playwright)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/e2e.yml/badge.svg)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/e2e.yml)
+
+
 ## Run this integration in seconds using [Gitpod](https://gitpod.io/)
 
 * Open your [Adyen Test Account](https://ca-test.adyen.com/ca/ca/overview/default.shtml) and create a set of [API keys](https://docs.adyen.com/user-management/how-to-get-the-api-key).
