@@ -21,7 +21,7 @@
     "require-dev": {
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.2.0",
-        "phpunit/phpunit": "^9.5.20"
+        "phpunit/phpunit": "^10.4.1"
     },
     "config": {
         "optimize-autoloader": true,
