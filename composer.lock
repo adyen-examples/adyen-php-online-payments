@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50d5bf6041f15cdd13e2c4311d1ffb51",
+    "content-hash": "1ce4fe5692f9ac7fb7296f6cd96a8997",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v16.0.0",
+            "version": "v17.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "5a21e4295a92474dd9c0db410461a4b7b810a742"
+                "reference": "0522cfb90072765e1dbc5434b6b3643c62208115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/5a21e4295a92474dd9c0db410461a4b7b810a742",
-                "reference": "5a21e4295a92474dd9c0db410461a4b7b810a742",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/0522cfb90072765e1dbc5434b6b3643c62208115",
+                "reference": "0522cfb90072765e1dbc5434b6b3643c62208115",
                 "shasum": ""
             },
             "require": {
@@ -31,9 +31,9 @@
             "require-dev": {
                 "dms/phpunit-arraysubset-asserts": "0.5.0",
                 "friendsofphp/php-cs-fixer": "*",
-                "php-coveralls/php-coveralls": "2.6.0",
-                "phpunit/phpunit": "9.6.13",
-                "squizlabs/php_codesniffer": "3.7.2"
+                "php-coveralls/php-coveralls": "2.7.0",
+                "phpunit/phpunit": "9.6.15",
+                "squizlabs/php_codesniffer": "3.8.0"
             },
             "type": "library",
             "autoload": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v16.0.0"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v17.0.0"
             },
-            "time": "2023-11-08T12:13:21+00:00"
+            "time": "2024-01-15T15:58:33+00:00"
         },
         {
             "name": "brick/math",
