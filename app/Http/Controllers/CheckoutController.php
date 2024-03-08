@@ -105,6 +105,7 @@ class CheckoutController extends Controller
             }
         }
 
-        return response('[accepted]', 200);
+        // Set the status code to 202 and return an empty response body
+        return response()->noContent()->setStatusCode(202);
     }
 }
