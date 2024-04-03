@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v17.1.1",
+            "version": "v17.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "148e0ad59d4b4fdb1b1cffc380d3277e12bf984f"
+                "reference": "e1e5debf21598ea87e9057fba5862818da61f761"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/148e0ad59d4b4fdb1b1cffc380d3277e12bf984f",
-                "reference": "148e0ad59d4b4fdb1b1cffc380d3277e12bf984f",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/e1e5debf21598ea87e9057fba5862818da61f761",
+                "reference": "e1e5debf21598ea87e9057fba5862818da61f761",
                 "shasum": ""
             },
             "require": {
@@ -32,8 +32,8 @@
                 "dms/phpunit-arraysubset-asserts": "0.5.0",
                 "friendsofphp/php-cs-fixer": "*",
                 "php-coveralls/php-coveralls": "2.7.0",
-                "phpunit/phpunit": "9.6.16",
-                "squizlabs/php_codesniffer": "3.8.1"
+                "phpunit/phpunit": "9.6.18",
+                "squizlabs/php_codesniffer": "3.9.0"
             },
             "type": "library",
             "autoload": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v17.1.1"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v17.4.0"
             },
-            "time": "2024-02-08T13:55:17+00:00"
+            "time": "2024-04-03T08:42:46+00:00"
         },
         {
             "name": "brick/math",
