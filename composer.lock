@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16272be1bbb4dece6e2e06aeb95062cc",
+    "content-hash": "0d9e76f82f7ecbb37dd28e251ab9d493",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v17.1.1",
+            "version": "v18.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "148e0ad59d4b4fdb1b1cffc380d3277e12bf984f"
+                "reference": "a5dce4553c5cd32b8e669968ab6fbd42334d0b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/148e0ad59d4b4fdb1b1cffc380d3277e12bf984f",
-                "reference": "148e0ad59d4b4fdb1b1cffc380d3277e12bf984f",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/a5dce4553c5cd32b8e669968ab6fbd42334d0b19",
+                "reference": "a5dce4553c5cd32b8e669968ab6fbd42334d0b19",
                 "shasum": ""
             },
             "require": {
@@ -32,8 +32,8 @@
                 "dms/phpunit-arraysubset-asserts": "0.5.0",
                 "friendsofphp/php-cs-fixer": "*",
                 "php-coveralls/php-coveralls": "2.7.0",
-                "phpunit/phpunit": "9.6.16",
-                "squizlabs/php_codesniffer": "3.8.1"
+                "phpunit/phpunit": "9.6.19",
+                "squizlabs/php_codesniffer": "3.9.2"
             },
             "type": "library",
             "autoload": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v17.1.1"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v18.2.1"
             },
-            "time": "2024-02-08T13:55:17+00:00"
+            "time": "2024-07-04T09:47:49+00:00"
         },
         {
             "name": "brick/math",
