@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ab0fb91cf333032acfe57138688363d",
+    "content-hash": "bdbec75d82398a835442899f0ddc35f2",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v19.1.0",
+            "version": "v20.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "9d297592900e6a2b90cf4acb86d577c8b327a2e9"
+                "reference": "818d687f69b7aa05c36078eb586ee9599364a46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/9d297592900e6a2b90cf4acb86d577c8b327a2e9",
-                "reference": "9d297592900e6a2b90cf4acb86d577c8b327a2e9",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/818d687f69b7aa05c36078eb586ee9599364a46e",
+                "reference": "818d687f69b7aa05c36078eb586ee9599364a46e",
                 "shasum": ""
             },
             "require": {
@@ -33,7 +33,7 @@
                 "friendsofphp/php-cs-fixer": "*",
                 "php-coveralls/php-coveralls": "2.7.0",
                 "phpunit/phpunit": "9.6.19",
-                "squizlabs/php_codesniffer": "3.10.1"
+                "squizlabs/php_codesniffer": "3.10.2"
             },
             "type": "library",
             "autoload": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v19.1.0"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v20.2.0"
             },
-            "time": "2024-07-26T07:05:00+00:00"
+            "time": "2024-09-02T09:22:00+00:00"
         },
         {
             "name": "brick/math",
