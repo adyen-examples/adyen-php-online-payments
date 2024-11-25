@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.0",
-        "adyen/php-api-library": "^20.2.0",
+        "adyen/php-api-library": "^22.1.0",
         "fruitcake/laravel-cors": "^3.0.0",
         "guzzlehttp/guzzle": "^7.4.2",
         "laravel/framework": "^v9.9.0",
