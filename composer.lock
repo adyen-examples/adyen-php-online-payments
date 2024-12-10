@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdbec75d82398a835442899f0ddc35f2",
+    "content-hash": "220d963673e6c8e40b226c9f7269af91",
     "packages": [
         {
             "name": "adyen/php-api-library",
-            "version": "v20.2.0",
+            "version": "v23.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adyen/adyen-php-api-library.git",
-                "reference": "818d687f69b7aa05c36078eb586ee9599364a46e"
+                "reference": "af262a702228c473bbb4c00f9d7000f0d85ad7e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/818d687f69b7aa05c36078eb586ee9599364a46e",
-                "reference": "818d687f69b7aa05c36078eb586ee9599364a46e",
+                "url": "https://api.github.com/repos/Adyen/adyen-php-api-library/zipball/af262a702228c473bbb4c00f9d7000f0d85ad7e5",
+                "reference": "af262a702228c473bbb4c00f9d7000f0d85ad7e5",
                 "shasum": ""
             },
             "require": {
@@ -52,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adyen/adyen-php-api-library/issues",
-                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v20.2.0"
+                "source": "https://github.com/Adyen/adyen-php-api-library/tree/v23.0.0"
             },
-            "time": "2024-09-02T09:22:00+00:00"
+            "time": "2024-12-10T12:04:37+00:00"
         },
         {
             "name": "brick/math",
