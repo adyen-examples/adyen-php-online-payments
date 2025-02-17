@@ -1,6 +1,7 @@
 tasks:
 - init: composer install
   command: |
+    cp .env.example .env
     # Check if environment variables are set in https://gitpod.io/variables.
     echo "Checking if environment variables are set ..."
     if [ -z ${ADYEN_HMAC_KEY+x} ] || [[ -z ${ADYEN_API_KEY+x} ]] || [[ -z ${ADYEN_CLIENT_KEY+x} ]] || [[ -z ${ADYEN_MERCHANT_ACCOUNT+x} ]]; then
