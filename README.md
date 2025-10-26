@@ -3,6 +3,9 @@
 [![PHP Composer](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/build.yml/badge.svg)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/build.yml) 
 [![E2E (Playwright)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/e2e.yml/badge.svg)](https://github.com/adyen-examples/adyen-php-online-payments/actions/workflows/e2e.yml)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/adyen-examples/adyen-php-online-payments?devcontainer_path=.devcontainer%2Fdevcontainer.json)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/adyen-examples/adyen-php-online-payments)
+
 ## Details
 
 This repository includes examples of PCI-compliant UI integrations for online payments with Adyen. Within this demo app, you'll find a simplified version of an e-commerce website, complete with commented code to highlight key features and concepts of Adyen's API. Check out the underlying code to see how you can integrate Adyen to give your shoppers the option to pay with their preferred payment methods, all in a seamless checkout experience.
@@ -46,6 +49,46 @@ git clone https://github.com/adyen-examples/adyen-php-online-payments.git
 ```
 composer install
 ```
+
+## Quick Start with GitHub Codespaces or Gitpod
+
+This repository can be instantly run in the cloud with one click using either GitHub Codespaces or Gitpod.
+
+### GitHub Codespaces
+
+Click the badge above to launch a dev container. The environment will automatically:
+- Install PHP 8.1 and necessary dependencies
+- Install Composer
+- Copy `.env.example` to `.env`
+- Run `composer install`
+- Generate application key
+
+**To start the server:**
+1. Set your environment variables in the `.env` file:
+   ```bash
+   ADYEN_API_KEY=your_api_key
+   ADYEN_CLIENT_KEY=your_client_key
+   ADYEN_MERCHANT_ACCOUNT=your_merchant_account
+   ADYEN_HMAC_KEY=your_hmac_key
+   ```
+2. Run: `php artisan serve --port=8080 --host=0.0.0.0`
+3. The app will be available on the forwarded port
+
+### Gitpod
+
+Click the badge above to launch in Gitpod. The environment will automatically:
+- Install dependencies
+- Copy `.env.example` to `.env`
+- Check for required environment variables
+- Start the Laravel server on port 8080
+
+**Note:** You'll need to set these environment variables in Gitpod:
+- `ADYEN_HMAC_KEY`
+- `ADYEN_API_KEY`
+- `ADYEN_CLIENT_KEY`
+- `ADYEN_MERCHANT_ACCOUNT`
+
+Set them at https://gitpod.io/variables
 
 ## Usage
 
