@@ -1,0 +1,41 @@
+{
+  "name": "Adyen PHP Online Payments",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/php:1": {
+      "version": "8.1"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "forwardPorts": [8080],
+
+  "portsAttributes": {
+    "8080": {
+      "label": "Laravel App",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "remoteEnv": {
+    "APP_URL": "http://localhost:8080"
+  },
+
+  "remoteUser": "vscode"
+}
+
