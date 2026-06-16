@@ -16,6 +16,11 @@ class AdyenClient
             throw new \InvalidArgumentException('Adyen version not configured in services.adyen.version');
         }
 
+        // Validate version format to prevent injection
+        if (!preg_match('/^\d+\.\d+\.\d+$/', $version)) {
+            throw new \InvalidArgumentException('Adyen version must be in semantic versioning format (e.g., 5.68.0)');
+        }
+
         $applicationName = 'checkout-example/adyen-web/' . $version;
         $client->setApplicationName($applicationName);
 
