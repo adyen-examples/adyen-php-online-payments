@@ -11,7 +11,7 @@ class AdyenClient
         $client->setXApiKey(env('ADYEN_API_KEY'));
         $client->setEnvironment(\Adyen\Environment::TEST);
         
-        $version = config('services.adyen.version', '5.68.0');
+        $version = config('services.adyen.version');
         $applicationName = 'checkout-example/adyen-web/' . $version;
         $client->setApplicationName($applicationName);
 
