@@ -12,6 +12,10 @@ class AdyenClient
         $client->setEnvironment(\Adyen\Environment::TEST);
         
         $version = config('services.adyen.version');
+        if (empty($version)) {
+            throw new \InvalidArgumentException('Adyen version not configured in services.adyen.version');
+        }
+        
         $applicationName = 'checkout-example/adyen-web/' . $version;
         $client->setApplicationName($applicationName);
 

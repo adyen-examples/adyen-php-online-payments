@@ -31,6 +31,7 @@ return [
     ],
 
     'adyen' => [
+        // Adyen Web SDK version - update this when upgrading the SDK
         'version' => '5.68.0',
     ],
 
