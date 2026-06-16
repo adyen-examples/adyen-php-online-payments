@@ -1,4 +1,5 @@
 const clientKey = document.getElementById("clientKey").innerHTML;
+const environment = window.adyenEnvironment || "test";
 
 // Used to finalize a checkout call in case of redirect
 const urlParams = new URLSearchParams(window.location.search);
@@ -37,7 +38,7 @@ async function createAdyenCheckout(session){
     {
       clientKey,
       locale: "en_US",
-      environment: "test",
+      environment,
       session: session,
       showPayButton: true,
       paymentMethodsConfiguration: {
@@ -58,7 +59,7 @@ async function createAdyenCheckout(session){
             value: 1000,
             currency: "USD",
           },
-          environment: "test", // Change this to "live" when you're ready to accept live PayPal payments
+          environment, // Change this to "live" when you're ready to accept live PayPal payments
           countryCode: "US", // Only needed for test. This will be automatically retrieved when you are in production.
         }
       },

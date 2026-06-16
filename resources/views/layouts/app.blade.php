@@ -18,6 +18,7 @@
      crossorigin="anonymous">
 
   <link rel="stylesheet" href="/css/app.css">
+  <script>window.adyenEnvironment = @json(config('services.adyen.web_environment'));</script>
   <title>Checkout Demo</title>
 </head>
 <body>
@@ -31,5 +32,4 @@
   </div>
 </body>
 </html>
-
 
