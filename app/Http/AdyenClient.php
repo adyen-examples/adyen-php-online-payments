@@ -7,7 +7,7 @@ class AdyenClient
     public $service;
 
     function __construct() {
-        $configuredEnvironment = strtolower((string) config('services.adyen.web_environment'));
+        $configuredEnvironment = strtolower(config('services.adyen.web_environment'));
         $environment = match ($configuredEnvironment) {
             \Adyen\Environment::LIVE => \Adyen\Environment::LIVE,
             \Adyen\Environment::TEST => \Adyen\Environment::TEST,
