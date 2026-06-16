@@ -32,7 +32,6 @@ return [
 
     'adyen' => [
         'version' => '5.68.0',
-        'applicationName' => 'checkout-example/adyen-web/5.68.0',
     ],
 
 ];
