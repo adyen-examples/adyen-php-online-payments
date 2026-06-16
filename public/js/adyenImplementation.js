@@ -1,5 +1,5 @@
 const clientKey = document.getElementById("clientKey").innerHTML;
-const environment = window.adyenEnvironment || "test";
+const environment = window.adyenEnvironment;
 
 // Used to finalize a checkout call in case of redirect
 const urlParams = new URLSearchParams(window.location.search);
