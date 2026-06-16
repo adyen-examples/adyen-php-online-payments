@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'adyen' => [
+        'version' => '5.68.0',
+        'applicationName' => 'checkout-example/adyen-web/5.68.0',
+    ],
+
 ];
