@@ -12,7 +12,7 @@ class AdyenClient
             'live' => \Adyen\Environment::LIVE,
             'test' => \Adyen\Environment::TEST,
             default => throw new \InvalidArgumentException(
-                "Unsupported Adyen web environment [{$configuredEnvironment}] configured in services.adyen.web_environment."
+                "Unsupported Adyen web environment [{$configuredEnvironment}] configured in services.adyen.web_environment. Use [test] or [live]."
             ),
         };
 
