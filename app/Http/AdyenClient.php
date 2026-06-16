@@ -7,9 +7,14 @@ class AdyenClient
     public $service;
 
     function __construct() {
-        $environment = config('services.adyen.web_environment') === 'live'
-            ? \Adyen\Environment::LIVE
-            : \Adyen\Environment::TEST;
+        $configuredEnvironment = strtolower((string) config('services.adyen.web_environment'));
+        $environment = match ($configuredEnvironment) {
+            \Adyen\Environment::LIVE => \Adyen\Environment::LIVE,
+            \Adyen\Environment::TEST => \Adyen\Environment::TEST,
+            default => throw new \InvalidArgumentException(
+                "Unsupported Adyen web environment [{$configuredEnvironment}] configured in services.adyen.web_environment."
+            ),
+        };
 
         $client = new \Adyen\Client();
         $client->setXApiKey(env('ADYEN_API_KEY'));
