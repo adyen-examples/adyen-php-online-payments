@@ -9,8 +9,8 @@ class AdyenClient
     function __construct() {
         $configuredEnvironment = strtolower(config('services.adyen.web_environment'));
         $environment = match ($configuredEnvironment) {
-            \Adyen\Environment::LIVE => \Adyen\Environment::LIVE,
-            \Adyen\Environment::TEST => \Adyen\Environment::TEST,
+            'live' => \Adyen\Environment::LIVE,
+            'test' => \Adyen\Environment::TEST,
             default => throw new \InvalidArgumentException(
                 "Unsupported Adyen web environment [{$configuredEnvironment}] configured in services.adyen.web_environment."
             ),
