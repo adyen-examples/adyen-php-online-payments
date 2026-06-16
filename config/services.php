@@ -31,7 +31,8 @@ return [
     ],
 
     'adyen' => [
-        // Adyen Web version used in this checkout example application
+        // Adyen Web SDK version used in the frontend of this checkout example
+        // Update this when upgrading the Adyen Web integration
         'version' => '5.68.0',
     ],
 
