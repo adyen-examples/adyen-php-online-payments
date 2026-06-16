@@ -1,5 +1,8 @@
 <?php
 
+$adyenWebVersion = env('ADYEN_WEB_VERSION', '5.68.0');
+$adyenWebBaseUrl = "https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/{$adyenWebVersion}";
+
 return [
 
     /*
@@ -31,10 +34,10 @@ return [
     ],
 
     'adyen' => [
-        'web_version' => env('ADYEN_WEB_VERSION', '5.68.0'),
-        'web_js_url' => env('ADYEN_WEB_JS_URL', 'https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.68.0/adyen.js'),
+        'web_version' => $adyenWebVersion,
+        'web_js_url' => env('ADYEN_WEB_JS_URL', "{$adyenWebBaseUrl}/adyen.js"),
         'web_js_integrity' => env('ADYEN_WEB_JS_INTEGRITY', 'sha384-U9GX6Oa3W024049K86PYG36/jHjkvUqsRd8Y9cF1CmB92sm4tnjxDXF/tkdcsk6k'),
-        'web_css_url' => env('ADYEN_WEB_CSS_URL', 'https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.68.0/adyen.css'),
+        'web_css_url' => env('ADYEN_WEB_CSS_URL', "{$adyenWebBaseUrl}/adyen.css"),
         'web_css_integrity' => env('ADYEN_WEB_CSS_INTEGRITY', 'sha384-gpOE6R0K50VgXe6u/pyjzkKl4Kr8hXu93KUCTmC4LqbO9mpoGUYsrmeVLcp2eejn'),
     ],
 
